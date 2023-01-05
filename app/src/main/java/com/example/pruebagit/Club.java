@@ -1,7 +1,12 @@
 package com.example.pruebagit;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "club")
 public class Club
 {
+    @PrimaryKey
     private int id;
     private String name;
 
