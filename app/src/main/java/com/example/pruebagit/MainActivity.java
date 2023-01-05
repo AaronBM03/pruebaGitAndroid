@@ -1,12 +1,11 @@
 package com.example.pruebagit;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Database;
-import androidx.room.Room;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.ListView;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,23 +14,26 @@ public class MainActivity extends AppCompatActivity {
 
     private static int DB_VERSION = 1;
     private static String DB_NAME = "cardchamp.db";
+    ListView clubList;
+    List<Club> clubs;
+    ClubAdapter clubAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // COMENTARIO 555
 
-        System.out.println("Empieza");
         CardChampRoomDatabase db = CardChampRoomDatabase.getInstance(this, DB_NAME);
-        System.out.println(db.isOpen());
-        List<Club> clubes = db.ClubDao().getAll();
-        for (Club club:
-             clubes) {
-            System.out.println(club);
-        }
-        System.out.println("Acaba");
+        System.out.println("DB is open =" + db.isOpen());
+
+        clubList = findViewById(R.id.clubList);
+        clubs = db.ClubDao().getAll();
+        clubAdapter =new ClubAdapter(clubs, this);
+
+        clubList.setAdapter(clubAdapter);
+
+        db.close();
     }
 
     public void crearBD()
