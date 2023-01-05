@@ -1,12 +1,15 @@
 package com.example.pruebagit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Database;
+import androidx.room.Room;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // COMENTARIO 555
 
-        //crearBD();
         System.out.println("Empieza");
-        System.out.println(recuperarClub(1));
+        CardChampRoomDatabase db = CardChampRoomDatabase.getInstance(this, DB_NAME);
+        System.out.println(db.isOpen());
+        List<Club> clubes = db.ClubDao().getAll();
+        for (Club club:
+             clubes) {
+            System.out.println(club);
+        }
         System.out.println("Acaba");
     }
 
