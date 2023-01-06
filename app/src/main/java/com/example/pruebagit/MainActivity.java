@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import com.example.pruebagit.model.Club;
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {

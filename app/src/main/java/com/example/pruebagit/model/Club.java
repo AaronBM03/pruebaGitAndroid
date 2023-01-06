@@ -1,4 +1,4 @@
-package com.example.pruebagit;
+package com.example.pruebagit.model;
 
 public class Club
 {
