@@ -29,14 +29,33 @@ public class Card {
 	private int dribbling;
 	private int defending;
 	private int physicality;
+	private int nation_id;
+	private int club_id;
 
 	public Card() {
 	}
 
-
+	public Card(int id, String name, Color color, int rarity, Position position, int cardAvg, int rating, int pace, int shooting, int passing, int dribbling, int defending, int physicality, int nation_id, int club_id) {
+		this.id = id;
+		this.name = name;
+		this.color = color;
+		this.rarity = rarity;
+		this.position = position;
+		this.cardAvg = cardAvg;
+		this.rating = rating;
+		this.pace = pace;
+		this.shooting = shooting;
+		this.passing = passing;
+		this.dribbling = dribbling;
+		this.defending = defending;
+		this.physicality = physicality;
+		this.updateCardAvg();
+		this.nation_id = nation_id;
+		this.club_id = club_id;
+	}
 
 	public Card(int id, String name, Club club, Nation nation, Color color, int rarity, Position position, int rating,
-			int pace, int shooting, int passing, int dribbling, int defending, int physicality) {
+				int pace, int shooting, int passing, int dribbling, int defending, int physicality) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -221,7 +240,22 @@ public class Card {
 
 	@Override
 	public String toString() {
-		return "Card [id=" + id + ", name=" + name + ", club=" + club.getName() + ", nation=" + nation.getName() + ", color=" + color
-				+ ", rarity=" + rarity + ", position=" + position + ", cardAvg=" + cardAvg + ", rating=" + rating + "]";
+		return "Card{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", color=" + color +
+				", rarity=" + rarity +
+				", position=" + position +
+				", cardAvg=" + cardAvg +
+				", rating=" + rating +
+				", pace=" + pace +
+				", shooting=" + shooting +
+				", passing=" + passing +
+				", dribbling=" + dribbling +
+				", defending=" + defending +
+				", physicality=" + physicality +
+				", nation_id=" + nation_id +
+				", club_id=" + club_id +
+				'}';
 	}
 }

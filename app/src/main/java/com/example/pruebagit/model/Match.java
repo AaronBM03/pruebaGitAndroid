@@ -35,6 +35,15 @@ public class Match {
 		this.status = status;
 	}
 
+	public Match(Card player) {
+		this.player = player;
+		turn = 0;
+		scorePlayer = 0;
+		scoreOpponent = 0;
+		usedStats = new ArrayList<>();
+		status = MatchStatus.NOT_FINISHED;
+	}
+
 	public Match() {
 	}
 
@@ -116,5 +125,14 @@ public class Match {
 		} else {
 			status = MatchStatus.LOST;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Match{" +
+				"opponent=" + opponent +
+				", turn=" + turn +
+				", status=" + status +
+				'}';
 	}
 }

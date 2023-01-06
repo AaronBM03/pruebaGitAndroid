@@ -6,14 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import com.example.pruebagit.model.Card;
+import com.example.pruebagit.model.Championship;
 import com.example.pruebagit.model.Club;
+import com.example.pruebagit.model.Color;
+import com.example.pruebagit.model.Position;
 
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int DB_VERSION = 1;
-    private static String DB_NAME = "cardchamp.db";
+    public static int DB_VERSION = 1;
+    public static String DB_NAME = "cardchamp.db";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,8 +28,17 @@ public class MainActivity extends AppCompatActivity {
 
         //crearBD();
         System.out.println("Empieza");
-        System.out.println(recuperarClub(1));
+//        System.out.println(recuperarClub(1));
+        testChampionship();
         System.out.println("Acaba");
+    }
+
+    public void testChampionship(){
+        Card player = new Card(1, "Aaron", Color.BRONZE, 0, Position.GK, 60, 46, 46, 46, 46, 46, 46, 46, 7, 1);
+        Championship championship = new Championship("Champions League", Color.BRONZE, null, 0);
+        System.out.println(championship);
+        championship.generateNewMatch(this, player);
+        System.out.println(championship);
     }
 
     public void crearBD()
