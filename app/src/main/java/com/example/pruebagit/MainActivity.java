@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         Championship championship = new Championship("Champions League", Color.BRONZE, null, 0);
         System.out.println(championship);
         championship.generateNewMatch(this, player);
-        System.out.println(championship);
+        System.out.println(player);
         //Y otro comentario
     }
 
