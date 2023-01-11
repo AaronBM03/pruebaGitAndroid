@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(championship);
         championship.generateNewMatch(this, player);
         System.out.println(championship);
+        //Y otro comentario
     }
 
     public void crearBD()
